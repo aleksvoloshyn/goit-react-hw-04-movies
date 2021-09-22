@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useParams, useRouteMatch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { GetTrendingMovies } from '../services/getMoviesApi';
 import { Card } from 'antd';
 import s from './TrendingMovies.module.css';
@@ -7,12 +7,13 @@ import s from './TrendingMovies.module.css';
 const { Meta } = Card;
 
 function TrendingMovies() {
-  const { url } = useRouteMatch();
+  // const { url } = useRouteMatch();
   // console.log(url);
   const [trendingFilms, setTrendingFilms] = useState([]);
+
   useEffect(() => {
-    GetTrendingMovies().then(data => {
-      setTrendingFilms(data.data.results);
+    GetTrendingMovies().then(movie => {
+      setTrendingFilms(movie);
     });
   }, []);
 
@@ -36,11 +37,12 @@ function TrendingMovies() {
                   cover={
                     <img
                       alt={film.title}
-                      src={`https://image.tmdb.org/t/p/w500/${film.backdrop_path}`}
+                      src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`}
                     />
                   }
                 >
-                  <Meta title={film.title} description={film.overview} />
+                  {/* <Meta title={film.title} description={film.overview} /> */}
+                  <Meta title={film.title} />
                 </Card>
               </Link>
             </li>

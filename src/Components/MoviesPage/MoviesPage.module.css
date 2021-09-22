@@ -1,0 +1,43 @@
+h2 {
+  margin-top: 16px;
+}
+
+.SearchForm {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.SearchForm__button {
+  color: white;
+  height: 38px;
+  width: 140px;
+  border: 1px solid salmon;
+
+  background-color: salmon;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.SearchForm__button:hover {
+  opacity: 1;
+}
+
+.SearchForm__input {
+  display: inline-block;
+  /* width: 100%; */
+  font: inherit;
+  font-size: 20px;
+  border: none;
+  outline: 1px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.SearchForm__input::placeholder {
+  font: inherit;
+  font-size: 18px;
+}

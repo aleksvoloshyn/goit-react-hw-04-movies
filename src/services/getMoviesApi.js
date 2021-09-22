@@ -6,13 +6,22 @@ const key = 'd37bfeabc71c0969f8ae363116645ca9';
 // https://api.themoviedb.org/3/trending/all/week?api_key=d37bfeabc71c0969f8ae363116645ca9
 
 function GetTrendingMovies() {
-  return axios.get(`${BASE_URL}/trending/movie/day?api_key=${key} `);
+  return axios
+    .get(`${BASE_URL}/trending/movie/day?api_key=${key} `)
+    .then(response => response.data.results)
+    .catch(error => console.log('Error:', error));
 }
+
 function GetMovieByQuery(query) {
-  return axios.get(`${BASE_URL}/movie?api_key=${key}&query=${query}`);
+  return axios
+    .get(`${BASE_URL}/movie?api_key=${key}&query=${query}`)
+    .then(response => response.data.results)
+    .catch(error => console.log('Error:', error));
 }
 function GetMovieById(id) {
-  return axios.get(`${BASE_URL}/movie/${id}?api_key=${key}`);
+  return axios
+    .get(`${BASE_URL}/movie/${id}?api_key=${key}`)
+    .then(response => response.data);
 }
 
 export { GetTrendingMovies, GetMovieByQuery, GetMovieById };

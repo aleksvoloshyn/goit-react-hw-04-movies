@@ -4,7 +4,7 @@
   padding: 12px;
 }
 .card img {
-  width: 600px;
+  width: 280px;
 }
 
 .userScore {
@@ -15,6 +15,10 @@
 h2 {
   font-size: 16px;
   font-weight: 700;
+}
+
+.link {
+  margin-top: 20px;
 }
 
 .overview {
