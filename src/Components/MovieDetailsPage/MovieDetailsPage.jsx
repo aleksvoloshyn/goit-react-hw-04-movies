@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams, NavLink, Route, useRouteMatch } from 'react-router-dom';
-import { GetMovieById } from '../../services/getMoviesApi';
+import {
+  GetMovieById,
+  GetMovieCast,
+  GetMovieReview,
+} from '../../services/getMoviesApi';
+import { AdditionalInfo } from '../AdditionalInfo/AdditionalInfo';
+import { Cast } from '../Cast/Cast';
+import { Reviews } from '../Reviews/Reviews';
 import { Card } from 'antd';
 
 import s from './MovieDetailsPage.module.css';
@@ -10,13 +17,17 @@ const { Meta } = Card;
 function MovieDetailsPage() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
+  const [cast, setCast] = useState(null);
+  const [review, setReview] = useState(null);
 
   useEffect(() => {
     GetMovieById(movieId).then(setMovie);
+    GetMovieCast(movieId).then(setCast);
+    GetMovieReview(movieId).then(setReview);
   }, [movieId]);
 
   // console.log(movieId);
-  // console.log(movie);
+  console.log(cast);
 
   return (
     <>
@@ -48,8 +59,14 @@ function MovieDetailsPage() {
             ))}
           </Card>
           <hr />
-          <Route path="/movies/:movieId/cast">Cast</Route>
-          <Route path="/movies/:movieId/reviews">Reviews</Route>
+          <AdditionalInfo movie={movie} />
+          <Route path="/movies/:movieId/cast">
+            <Cast cast={cast} />
+          </Route>
+
+          <Route path="/movies/:movieId/reviews">
+            <Reviews review={review} />
+          </Route>
         </>
       )}
     </>

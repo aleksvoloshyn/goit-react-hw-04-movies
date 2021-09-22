@@ -21,7 +21,28 @@ function GetMovieByQuery(query) {
 function GetMovieById(id) {
   return axios
     .get(`${BASE_URL}/movie/${id}?api_key=${key}`)
-    .then(response => response.data);
+    .then(response => response.data)
+    .catch(error => console.log('Error:', error));
 }
 
-export { GetTrendingMovies, GetMovieByQuery, GetMovieById };
+function GetMovieCast(id) {
+  return axios
+    .get(`${BASE_URL}/movie/${id}/credits?api_key=${key}`)
+    .then(response => response.data)
+    .catch(error => console.log('Error:', error));
+}
+
+function GetMovieReview(id) {
+  return axios
+    .get(`${BASE_URL}/movie/${id}/reviews?api_key=${key}&page=1`)
+    .then(response => response.data)
+    .catch(error => console.log('Error:', error));
+}
+
+export {
+  GetTrendingMovies,
+  GetMovieByQuery,
+  GetMovieById,
+  GetMovieCast,
+  GetMovieReview,
+};

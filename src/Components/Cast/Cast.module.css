@@ -1,0 +1,10 @@
+.castList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.castList__item {
+  margin-right: 14px;
+  margin-bottom: 12px;
+}
