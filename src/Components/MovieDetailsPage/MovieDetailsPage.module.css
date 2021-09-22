@@ -1,0 +1,23 @@
+.card {
+  display: flex;
+  font-size: 18px;
+  padding: 12px;
+}
+.card img {
+  width: 600px;
+}
+
+.userScore {
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.overview {
+  font-style: italic;
+  font-size: 16px;
+}

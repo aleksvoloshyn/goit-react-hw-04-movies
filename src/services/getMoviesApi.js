@@ -6,10 +6,13 @@ const key = 'd37bfeabc71c0969f8ae363116645ca9';
 // https://api.themoviedb.org/3/trending/all/week?api_key=d37bfeabc71c0969f8ae363116645ca9
 
 function GetTrendingMovies() {
-  return axios.get(`${BASE_URL}/trending/all/day?api_key=${key} `);
+  return axios.get(`${BASE_URL}/trending/movie/day?api_key=${key} `);
 }
-function GetByQuery(query) {
+function GetMovieByQuery(query) {
   return axios.get(`${BASE_URL}/movie?api_key=${key}&query=${query}`);
 }
+function GetMovieById(id) {
+  return axios.get(`${BASE_URL}/movie/${id}?api_key=${key}`);
+}
 
-export { GetTrendingMovies, GetByQuery };
+export { GetTrendingMovies, GetMovieByQuery, GetMovieById };

@@ -1,0 +1,10 @@
+.trendingList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.trendingList__item {
+  margin-right: 14px;
+  width: 22%;
+}
