@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, NavLink } from 'react-router-dom';
+import { useParams, NavLink, Route, useRouteMatch } from 'react-router-dom';
 import { GetMovieById } from '../../services/getMoviesApi';
 import { Card } from 'antd';
 
@@ -47,6 +47,9 @@ function MovieDetailsPage() {
               <li key={genre.id}>{genre.name}</li>
             ))}
           </Card>
+          <hr />
+          <Route path="/movies/:movieId/cast">Cast</Route>
+          <Route path="/movies/:movieId/reviews">Reviews</Route>
         </>
       )}
     </>

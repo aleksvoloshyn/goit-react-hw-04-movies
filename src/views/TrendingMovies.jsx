@@ -8,6 +8,7 @@ const { Meta } = Card;
 
 function TrendingMovies() {
   // const { url } = useRouteMatch();
+
   // console.log(url);
   const [trendingFilms, setTrendingFilms] = useState([]);
 
@@ -31,6 +32,7 @@ function TrendingMovies() {
                 {film.title} {film.name}
               </h2> */}
               <Link to={`movies/${film.id}`}>
+                {/* <Link to={`${URL}/${film.id}`}> */}
                 <Card
                   hoverable
                   style={{ width: 240 }}
