@@ -1,5 +1,3 @@
-import s from './AdditionalInfo.module.css';
-// import { useParams } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
 function AdditionalInfo({ movie }) {

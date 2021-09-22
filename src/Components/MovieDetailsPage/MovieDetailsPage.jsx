@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useParams, NavLink, Route, useRouteMatch } from 'react-router-dom';
+// import { useParams, NavLink, Route, useRouteMatch } from 'react-router-dom';
+import { useParams, NavLink, Route } from 'react-router-dom';
 import {
   GetMovieById,
   GetMovieCast,
@@ -27,7 +28,7 @@ function MovieDetailsPage() {
   }, [movieId]);
 
   // console.log(movieId);
-  console.log(cast);
+  // console.log(cast);
 
   return (
     <>

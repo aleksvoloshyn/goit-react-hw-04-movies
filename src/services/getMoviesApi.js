@@ -14,9 +14,13 @@ function GetTrendingMovies() {
 
 function GetMovieByQuery(query) {
   return axios
-    .get(`${BASE_URL}/movie?api_key=${key}&query=${query}`)
+    .get(`${BASE_URL}/search/movie?api_key=${key}&query=${query}`)
     .then(response => response.data.results)
     .catch(error => console.log('Error:', error));
+
+  // https://api.themoviedb.org/3/movie?api_key=d37bfeabc71c0969f8ae363116645ca9&query=batman
+  // https://api.themoviedb.org/3/search/movie?api_key=d37bfeabc71c0969f8ae363116645ca9&language=en-US&query=batman&page=1&include_adult=true
+  // https://api.themoviedb.org/3/movie?api_key=d37bfeabc71c0969f8ae363116645ca9&query=dog
 }
 function GetMovieById(id) {
   return axios

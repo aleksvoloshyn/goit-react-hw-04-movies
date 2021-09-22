@@ -41,3 +41,19 @@ h2 {
   font: inherit;
   font-size: 18px;
 }
+
+.searchList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 26px;
+}
+
+.searchList__item {
+  margin-right: 18px;
+  margin-bottom: 20px;
+}
+
+img {
+  height: 300px;
+}

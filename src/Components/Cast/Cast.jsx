@@ -1,11 +1,11 @@
 import s from './Cast.module.css';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import { Card } from 'antd';
 const { Meta } = Card;
 
 function Cast({ cast }) {
-  const { movieId } = useParams();
-  console.log(cast.cast.name);
+  //   const { movieId } = useParams();
+  //   console.log(cast.cast.name);
   return (
     <>
       <ul className={s.castList}>
