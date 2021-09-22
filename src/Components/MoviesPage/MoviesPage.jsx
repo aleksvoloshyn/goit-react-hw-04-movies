@@ -25,7 +25,7 @@ function MoviesPage() {
           className={s.SearchForm__input}
           type="text"
           placeholder="Search film.."
-          value={searchQuery}
+          // value={searchQuery}
         />
         <button className={s.SearchForm__button} type="submit">
           Search

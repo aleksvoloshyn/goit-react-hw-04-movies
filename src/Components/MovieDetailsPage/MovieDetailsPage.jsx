@@ -10,23 +10,16 @@ const { Meta } = Card;
 function MovieDetailsPage() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-  // const [moviePosterPath, setmoviePosterPath] = useState([]);
 
   useEffect(() => {
-    // GetMovieById(movieId);
-
-    GetMovieById(movieId).then(data => {
-      setMovie(data);
-    });
-
-    console.log(movie);
-    // console.log(moviePosterPath);
-    console.log(movieId);
+    GetMovieById(movieId).then(setMovie);
   }, [movieId]);
+
+  // console.log(movieId);
+  // console.log(movie);
 
   return (
     <>
-      {/* <h2> MovieDetailsPage: {movieId}</h2> */}
       <NavLink exact to="/" className={s.link}>
         Home
       </NavLink>
@@ -43,14 +36,16 @@ function MovieDetailsPage() {
             }
           >
             <Meta title={movie.title} description={movie.overview} />
-
             <p className={s.userScore}>{`User Score: ${
               movie.vote_average * 10
             }%`}</p>
             <h2>Overview: </h2>
             <p className={s.overview}>{movie.overview}</p>
             <h2>Genres:</h2>
-            {/* {movie.genres.map(genre => genre.name)} */}
+
+            {movie.genres.map(genre => (
+              <li key={genre.id}>{genre.name}</li>
+            ))}
           </Card>
         </>
       )}
