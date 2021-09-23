@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import s from './MoviesPage.module.css';
 import { GetMovieByQuery } from '../../services/getMoviesApi';
 import { Card } from 'antd';
 import defaultImage from '../../pics/defaultImage.jpg';
-import { Search } from 'semantic-ui-react';
+// import { Search } from 'semantic-ui-react';
 const { Meta } = Card;
 
 function MoviesPage() {
@@ -13,11 +13,22 @@ function MoviesPage() {
   const [results, setResults] = useState(null);
   const history = useHistory();
   const location = useLocation();
-
+  const historyQuery = history.location.search.split('=')[1];
   const handleChange = event => {
     event.preventDefault();
     setQuery(event.currentTarget.value);
   };
+
+  useEffect(() => {
+    // GetMovieByQuery(query).then(setResults);
+
+    // console.log('historyQuery:', historyQuery);
+    // console.log('history:', history);
+    if (historyQuery === undefined) {
+      return;
+    }
+    GetMovieByQuery(historyQuery).then(setResults);
+  }, [historyQuery]);
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -28,9 +39,9 @@ function MoviesPage() {
     setQuery('');
 
     GetMovieByQuery(query).then(setResults);
-    // console.log(results);
-    console.log(location);
-    console.log(history);
+
+    // console.log('location:', location);
+    // console.log('history:', history);
     history.push({ ...location, search: `query=${query}` });
   };
 

@@ -22,6 +22,6 @@ function Reviews({ review }) {
   }
 }
 Reviews.propTypes = {
-  moviesId: PropTypes.string.isRequired,
+  moviesId: PropTypes.string,
 };
 export { Reviews };

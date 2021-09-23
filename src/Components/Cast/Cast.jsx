@@ -33,6 +33,6 @@ function Cast({ cast }) {
   );
 }
 Cast.propTypes = {
-  moviesId: PropTypes.string.isRequired,
+  moviesId: PropTypes.string,
 };
 export { Cast };
