@@ -7,4 +7,16 @@
 .castList__item {
   margin-right: 14px;
   margin-bottom: 12px;
+  cursor: pointer;
+}
+
+img {
+  height: 320px;
+  width: 220px;
+}
+
+.filmName {
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
 }

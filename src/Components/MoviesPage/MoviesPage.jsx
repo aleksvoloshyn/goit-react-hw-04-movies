@@ -85,7 +85,7 @@ function MoviesPage() {
                   <Meta title={res.title} />
                 </Card>
 
-                {res.title}
+                {/* {res.title} */}
               </Link>
             </li>
           ))}
@@ -95,4 +95,4 @@ function MoviesPage() {
   );
 }
 
-export { MoviesPage };
+export default MoviesPage;

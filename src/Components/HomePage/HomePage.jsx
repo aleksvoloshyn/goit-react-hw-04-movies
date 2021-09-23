@@ -4,4 +4,4 @@ function HomePage() {
   return <TrendingMovies />;
 }
 
-export { HomePage };
+export default HomePage;

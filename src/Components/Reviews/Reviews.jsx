@@ -24,4 +24,4 @@ function Reviews({ review }) {
 Reviews.propTypes = {
   moviesId: PropTypes.string,
 };
-export { Reviews };
+export default Reviews;

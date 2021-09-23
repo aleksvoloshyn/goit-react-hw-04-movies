@@ -9,3 +9,19 @@
   width: 22%;
   margin-bottom: 12px;
 }
+
+.mainTitle {
+  margin: 20px;
+  color: #2a363b;
+  font-size: 18px;
+}
+img {
+  height: 320px;
+  width: 220px;
+}
+
+.filmName {
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+}

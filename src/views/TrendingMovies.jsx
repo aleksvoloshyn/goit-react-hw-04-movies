@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { GetTrendingMovies } from '../services/getMoviesApi';
-import { Card } from 'antd';
+// import { Card } from 'antd';
 import s from './TrendingMovies.module.css';
 
-const { Meta } = Card;
+// const { Meta } = Card;
 
 function TrendingMovies() {
   // const { url } = useRouteMatch();
@@ -21,7 +21,7 @@ function TrendingMovies() {
   // console.log(trendingFilms);
   return (
     <>
-      <h2>Trending today</h2>
+      <h2 className={s.mainTitle}>Trending today</h2>
 
       {trendingFilms && (
         <ul className={s.trendingList}>
@@ -33,19 +33,13 @@ function TrendingMovies() {
               </h2> */}
               <Link to={`movies/${film.id}`}>
                 {/* <Link to={`${URL}/${film.id}`}> */}
-                <Card
-                  hoverable
-                  style={{ width: 240 }}
-                  cover={
-                    <img
-                      alt={film.title}
-                      src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`}
-                    />
-                  }
-                >
-                  {/* <Meta title={film.title} description={film.overview} /> */}
-                  <Meta title={film.title} />
-                </Card>
+
+                <img
+                  alt={film.title}
+                  src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`}
+                />
+
+                <h2 className={s.filmName}>{film.title} </h2>
               </Link>
             </li>
           ))}

@@ -1,8 +1,8 @@
 import s from './Cast.module.css';
 // import { useParams } from 'react-router-dom';
-import { Card } from 'antd';
+// import { Card } from 'antd';
 import PropTypes from 'prop-types';
-const { Meta } = Card;
+// const { Meta } = Card;
 
 function Cast({ cast }) {
   //   const { movieId } = useParams();
@@ -13,18 +13,14 @@ function Cast({ cast }) {
         {cast.cast.map(actor => (
           <li className={s.castList__item} key={actor.id}>
             {actor.profile_path && (
-              <Card
-                hoverable
-                style={{ width: 200 }}
-                cover={
-                  <img
-                    alt={actor.name}
-                    src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
-                  />
-                }
-              >
-                <Meta title={actor.name} />
-              </Card>
+              <>
+                {' '}
+                <img
+                  alt={actor.name}
+                  src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
+                />
+                <p className={s.filmName}>{actor.name} </p>
+              </>
             )}
           </li>
         ))}
@@ -35,4 +31,4 @@ function Cast({ cast }) {
 Cast.propTypes = {
   moviesId: PropTypes.string,
 };
-export { Cast };
+export default Cast;
