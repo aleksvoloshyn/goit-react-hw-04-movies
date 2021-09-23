@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 // import { useParams, NavLink, Route, useRouteMatch } from 'react-router-dom';
 import { useParams, NavLink, Route } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router';
 import {
   GetMovieById,
   GetMovieCast,
@@ -20,6 +21,8 @@ function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
   const [cast, setCast] = useState(null);
   const [review, setReview] = useState(null);
+  const history = useHistory();
+  const location = useLocation();
 
   useEffect(() => {
     GetMovieById(movieId).then(setMovie);
@@ -30,11 +33,20 @@ function MovieDetailsPage() {
   // console.log(movieId);
   // console.log(cast);
 
+  const onGoBackClick = () => {
+    history.goBack();
+  };
+
   return (
     <>
-      <NavLink exact to="/" className={s.link}>
+      {/* <NavLink exact to="/" className={s.link}>
         Home
-      </NavLink>
+      </NavLink> */}
+
+      <button className={s.button} type="button" onClick={onGoBackClick}>
+        Go Back
+      </button>
+
       {movie && (
         <>
           <Card

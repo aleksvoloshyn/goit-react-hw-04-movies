@@ -13,6 +13,7 @@ function MoviesPage() {
   const [results, setResults] = useState(null);
   const history = useHistory();
   const location = useLocation();
+
   const historyQuery = history.location.search.split('=')[1];
   const handleChange = event => {
     event.preventDefault();
