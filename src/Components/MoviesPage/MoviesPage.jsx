@@ -1,15 +1,18 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import s from './MoviesPage.module.css';
 import { GetMovieByQuery } from '../../services/getMoviesApi';
 import { Card } from 'antd';
 import defaultImage from '../../pics/defaultImage.jpg';
+import { Search } from 'semantic-ui-react';
 const { Meta } = Card;
 
 function MoviesPage() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState(null);
+  const history = useHistory();
+  const location = useLocation();
 
   const handleChange = event => {
     event.preventDefault();
@@ -26,6 +29,9 @@ function MoviesPage() {
 
     GetMovieByQuery(query).then(setResults);
     // console.log(results);
+    console.log(location);
+    console.log(history);
+    history.push({ ...location, search: `query=${query}` });
   };
 
   return (
