@@ -1,4 +1,5 @@
 // import s from './Reviews.module.css';
+import PropTypes from 'prop-types';
 
 function Reviews({ review }) {
   //   console.log(review.results);
@@ -20,5 +21,7 @@ function Reviews({ review }) {
     );
   }
 }
-
+Reviews.propTypes = {
+  moviesId: PropTypes.string.isRequired,
+};
 export { Reviews };

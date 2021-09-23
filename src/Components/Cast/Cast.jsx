@@ -1,6 +1,7 @@
 import s from './Cast.module.css';
 // import { useParams } from 'react-router-dom';
 import { Card } from 'antd';
+import PropTypes from 'prop-types';
 const { Meta } = Card;
 
 function Cast({ cast }) {
@@ -31,5 +32,7 @@ function Cast({ cast }) {
     </>
   );
 }
-
+Cast.propTypes = {
+  moviesId: PropTypes.string.isRequired,
+};
 export { Cast };
