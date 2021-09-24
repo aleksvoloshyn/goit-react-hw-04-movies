@@ -2,7 +2,7 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 
 // import { useParams, NavLink, Route, useRouteMatch } from 'react-router-dom';
 import { useParams, Route } from 'react-router-dom';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 import {
   GetMovieById,
   GetMovieCast,
@@ -28,6 +28,7 @@ function MovieDetailsPage() {
   const [cast, setCast] = useState(null);
   const [review, setReview] = useState(null);
   const history = useHistory();
+  const location = useLocation();
   // const location = useLocation();
 
   useEffect(() => {
@@ -40,7 +41,10 @@ function MovieDetailsPage() {
   // console.log(cast);
 
   const onGoBackClick = () => {
-    history.goBack();
+    // history.goBack();
+    history.push('/');
+    console.log(history);
+    console.log(location);
   };
 
   return (
